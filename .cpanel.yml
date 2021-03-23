@@ -3,3 +3,7 @@ deployment:
   tasks:
     - export DEPLOYPATH=/home/za50wftgidtw/repositories/squadup
     - /bin/cp index.html $DEPLOYPATH
+    - /bin/cp project.mobirise $DEPLOYPATH
+    - /bin/cp howTo.html $DEPLOYPATH
+    - /bin/cp -R assets $DEPLOYPATH
+    - /bin/cp -R js $DEPLOYPATH
