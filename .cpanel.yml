@@ -1,6 +1,6 @@
 ---
 deployment:
   tasks:
-    - export DEPLOYPATH=/home/za50wftgidtw/public_html/
+    - export DEPLOYPATH=/home/za50wftgidtw/public_html/squadup
     - /bin/cp index.html $DEPLOYPATH
     
