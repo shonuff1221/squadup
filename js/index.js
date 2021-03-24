@@ -86,11 +86,10 @@ async function userLoginAttempt(){
 		$("#contractAddress").on("click", function() {
 		
 			window.open(bscScan);
-			})
-		});
+			});
 		}, 20000);
-	};
-
+	});
+}
 async function initContract(){
 	try{
 		await (mainContract = new web3.eth.Contract(abi,contractAddress));
@@ -383,7 +382,6 @@ async function setUpContracts() {
 
 	totalStaked = await mainContract.methods.totalStaked().call()
 	$('#totalStaked')[0].innerHTML = totalStaked / 1e18;  
-  
 	  
 
 	var plans = []
