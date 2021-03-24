@@ -383,8 +383,8 @@ async function setUpContracts() {
 
 	totalStaked = await mainContract.methods.totalStaked().call()
 	$('#totalStaked')[0].innerHTML = totalStaked / 1e18;  
-  userTotalStaked =await mainContract.methods.getUserTotalDeposits().call()
-	$('#getUserTotalDeposits')[0].innerHTML = userTotalStaked / 1e18;  
+  
+	  
 
 	var plans = []
 	for(let i = 0; i < 6; i++){
