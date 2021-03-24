@@ -83,8 +83,7 @@ async function userLoginAttempt(){
 		}catch(error) {
 			console.log(error)
 		}
-		$("#contractAddress").effect("fade", 2500, function() {
-			$("#contractAddress").fadeIn();
+		$("#contractAddress").effect("fadeIn", 2500, function() {
 			$("#contractAddress").on('click',function() {
 			window.open(bscScan);
 			})
@@ -384,7 +383,8 @@ async function setUpContracts() {
 
 	totalStaked = await mainContract.methods.totalStaked().call()
 	$('#totalStaked')[0].innerHTML = totalStaked / 1e18;  
-	$('#getUserTotalDeposits')[0].innerHTML = totalStaked / 1e18;  
+  userTotalStaked =await mainContract.methods.getUserTotalDeposits().call()
+	$('#getUserTotalDeposits')[0].innerHTML = userTotalStaked / 1e18;  
 
 	var plans = []
 	for(let i = 0; i < 6; i++){
