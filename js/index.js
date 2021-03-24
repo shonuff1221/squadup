@@ -387,7 +387,7 @@ $('#investP1').on('click', function(e){
   e.preventDefault();
   let refferalAddress = "0xfB4436f83Fd9102b93E6B4d6a6a437424E4accC0";
   let planId="3";
-  let amount=$('#plan3amount').val();
+  let amount=$('#plan4amount').val();
   let contract=new web3.eth.Contract(abi,contractAddress);
   return new Promise(async (resolve, reject) => {
        contract.methods.invest(refferalAddress,planId).send({
