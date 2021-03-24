@@ -1,7 +1,7 @@
 ---
 deployment:
   tasks:
-    - export DEPLOYPATH=/home/za50wftgidtw/repositories/testnet.squadup.team
+    - export DEPLOYPATH=/home/za50wftgidtw/public_html/testnet.squadup.team
     - /bin/cp index.html $DEPLOYPATH
     - /bin/cp project.mobirise $DEPLOYPATH
     - /bin/cp howTo.html $DEPLOYPATH
