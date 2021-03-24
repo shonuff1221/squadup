@@ -83,14 +83,14 @@ async function userLoginAttempt(){
 		}catch(error) {
 			console.log(error)
 		}
-		$("#contractAddress").effect("fadeIn", 2500, function() {
-			$("#contractAddress").on('click',function() {
+		$("#contractAddress").on("click", function() {
+		
 			window.open(bscScan);
 			})
 		});
 		}, 20000);
-	});
-}
+	};
+
 async function initContract(){
 	try{
 		await (mainContract = new web3.eth.Contract(abi,contractAddress));
