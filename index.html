@@ -80,8 +80,7 @@ Earnings every moment, withdraw instantly any time">
             <div class="card p-3 align-center col-12 col-md-6">
                 <div class="panel-item p-3">
                     <div class="card-text">
-                        <h3 id="totalStaked" class="count pt-3 pb-1 mbr-semibold mbr-fonts-style display-2">
-                            - -</h3>
+                        <h3 id="totalStaked" class="count pt-3 pb-1 mbr-semibold mbr-fonts-style display-2">- -</h3>
                         <h4 class="mbr-content-title mbr-semibold pb-3 mbr-fonts-style display-5">Total BNB Staked</h4>
                         
                     </div>
@@ -148,7 +147,7 @@ Earnings every moment, withdraw instantly any time">
 
                             <div class="item mbr-flex">
                                 <p class="item-text mbr-regular mbr-white mbr-fonts-style display-7">Enter Amount</p>
-                                <input  placeholder="10" type="text"id="plan1amount" class="item-text mbr-bold mbr-white mbr-fonts-style display-7", style="color: white;height: 35px;width: 75px;background-color:#494949",class="btn btn-sm btn-primary display-4">
+                                <input  placeholder="10" type="number" id="plan1amount" class="item-text mbr-bold mbr-white mbr-fonts-style display-7", style="color: white;height: 35px;width: 75px;background-color:#494949",class="btn btn-sm btn-primary display-4">
                                 <span class="item-icon icon54-v1-dollar-cart"></span>
                             </div>
 
@@ -159,7 +158,7 @@ Earnings every moment, withdraw instantly any time">
                             </div>
                         </div>
                     </div>
-                    <div  class="mbr-section-btn"><a id="investP1" class="btn btn-sm btn-primary display-4" ><span class="imind-mail-money mbr-iconfont mbr-iconfont-btn"></span>Stake BNB</a></div>
+                    <div  class="mbr-section-btn"><a id="investP1" onclick="stake(0)" class="btn btn-sm btn-primary display-4" ><span class="imind-mail-money mbr-iconfont mbr-iconfont-btn"></span>Stake BNB</a></div>
                 </div>
             </div>
             <div class="card md-pb col-12 col-md-6 col-lg-4">
@@ -191,7 +190,7 @@ Earnings every moment, withdraw instantly any time">
 
                             <div class="item mbr-flex">
                                 <p class="item-text mbr-regular mbr-white mbr-fonts-style display-7">Enter Amount</p>
-                                <input placeholder="10" type="text" id="plan2amount"class="item-text mbr-bold mbr-white mbr-fonts-style display-7", style="color: white;height: 35px;width: 75px;background-color:#494949",class="btn btn-sm btn-primary display-4">
+                                <input placeholder="10" type="number" id="plan2amount"class="item-text mbr-bold mbr-white mbr-fonts-style display-7", style="color: white;height: 35px;width: 75px;background-color:#494949",class="btn btn-sm btn-primary display-4">
                                 <span class="item-icon icon54-v1-dollar-cart"></span>
                             </div>
 
@@ -202,7 +201,7 @@ Earnings every moment, withdraw instantly any time">
                             </div>
                         </div>
                     </div>
-                    <div class="mbr-section-btn"><a id="investP2"class="btn btn-sm btn-primary display-4" href="#"><span class="imind-mail-money mbr-iconfont mbr-iconfont-btn"></span>Stake BNB</a></div>
+                    <div class="mbr-section-btn"><a onclick="stake(1)" class="btn btn-sm btn-primary display-4" href="#"><span class="imind-mail-money mbr-iconfont mbr-iconfont-btn"></span>Stake BNB</a></div>
                 </div>
             </div>
             <div class="card col-12 col-md-6 col-lg-4">
@@ -234,7 +233,7 @@ Earnings every moment, withdraw instantly any time">
 
                             <div class="item mbr-flex">
                                 <p class="item-text mbr-regular mbr-white mbr-fonts-style display-7">Enter Amount</p>
-                                <input placeholder="10" type="text" id="plan3amount"class="item-text mbr-bold mbr-white mbr-fonts-style display-7" style="color: white;height: 35px;width: 75px;background-color:#494949",class="btn btn-sm btn-primary display-4">
+                                <input placeholder="10" type="number" id="plan3amount"class="item-text mbr-bold mbr-white mbr-fonts-style display-7" style="color: white;height: 35px;width: 75px;background-color:#494949",class="btn btn-sm btn-primary display-4">
                                 <span class="item-icon icon54-v1-dollar-cart"></span>
                             </div>
 
@@ -245,7 +244,7 @@ Earnings every moment, withdraw instantly any time">
                             </div>
                         </div>
                     </div>
-                    <div class="mbr-section-btn"><a id="investP3"class="btn btn-sm btn-primary display-4" href="#"><span class="imind-mail-money mbr-iconfont mbr-iconfont-btn"></span>Stake BNB</a></div>
+                    <div class="mbr-section-btn"><a onclick="stake(2)" class="btn btn-sm btn-primary display-4" href="#"><span class="imind-mail-money mbr-iconfont mbr-iconfont-btn"></span>Stake BNB</a></div>
                 </div>
             </div>
         </div>
@@ -289,7 +288,7 @@ Earnings every moment, withdraw instantly any time">
 
                             <div class="item mbr-flex">
                                 <p class="item-text mbr-regular mbr-white mbr-fonts-style display-7">Enter Amount</p>
-                                <input placeholder="10" type="text" id="plan4amount"class="item-text mbr-bold mbr-white mbr-fonts-style display-7", style="color: white;height: 35px;width: 75px;background-color:#494949",class="btn btn-sm btn-primary display-4">
+                                <input placeholder="10" type="number" id="plan4amount"class="item-text mbr-bold mbr-white mbr-fonts-style display-7", style="color: white;height: 35px;width: 75px;background-color:#494949",class="btn btn-sm btn-primary display-4">
                                 <span class="item-icon icon54-v1-dollar-cart"></span>
                             </div>
 
@@ -300,7 +299,7 @@ Earnings every moment, withdraw instantly any time">
                             </div>
                         </div>
                     </div>
-                    <div class="mbr-section-btn"><a id="investP4"class="btn btn-sm btn-primary display-4" href="#"><span class="imind-mail-money mbr-iconfont mbr-iconfont-btn"></span>Stake BNB</a></div>
+                    <div class="mbr-section-btn"><a onclick="stake(3)" class="btn btn-sm btn-primary display-4" href="#"><span class="imind-mail-money mbr-iconfont mbr-iconfont-btn"></span>Stake BNB</a></div>
                 </div>
             </div>
             <div class="card md-pb col-12 col-md-6 col-lg-4">
@@ -332,7 +331,7 @@ Earnings every moment, withdraw instantly any time">
 
                             <div class="item mbr-flex">
                                 <p class="item-text mbr-regular mbr-white mbr-fonts-style display-7">Enter Amount</p>
-                                <input placeholder="10" type="text" id="plan5amount"class="item-text mbr-bold mbr-white mbr-fonts-style display-7", style="color: white;height: 35px;width: 75px;background-color:#494949",class="btn btn-sm btn-primary display-4">
+                                <input placeholder="10" type="number" id="plan5amount"class="item-text mbr-bold mbr-white mbr-fonts-style display-7", style="color: white;height: 35px;width: 75px;background-color:#494949",class="btn btn-sm btn-primary display-4">
                                 <span class="item-icon icon54-v1-dollar-cart"></span>
                             </div>
 
@@ -343,7 +342,7 @@ Earnings every moment, withdraw instantly any time">
                             </div>
                         </div>
                     </div>
-                    <div class="mbr-section-btn"><a id="investP5"class="btn btn-sm btn-primary display-4" href="#"><span class="imind-mail-money mbr-iconfont mbr-iconfont-btn"></span>Stake BNB</a></div>
+                    <div class="mbr-section-btn"><a onclick="stake(4)" class="btn btn-sm btn-primary display-4" href="#"><span class="imind-mail-money mbr-iconfont mbr-iconfont-btn"></span>Stake BNB</a></div>
                 </div>
             </div>
             <div class="card col-12 col-md-6 col-lg-4">
@@ -375,7 +374,7 @@ Earnings every moment, withdraw instantly any time">
 
                             <div class="item mbr-flex">
                                 <p class="item-text mbr-regular mbr-white mbr-fonts-style display-7">Enter Amount</p>
-                                <input placeholder="10" type="text" id="plan6amount"class="item-text mbr-bold mbr-white mbr-fonts-style display-7", style="color: white;height: 35px;width: 75px;background-color:#494949",class="btn btn-sm btn-primary display-4">
+                                <input placeholder="10" type="number" id="plan6amount" class="item-text mbr-bold mbr-white mbr-fonts-style display-7", style="color: white;height: 35px;width: 75px;background-color:#494949">
                                 <span class="item-icon icon54-v1-dollar-cart"></span>
                             </div>
 
@@ -386,7 +385,7 @@ Earnings every moment, withdraw instantly any time">
                             </div>
                         </div>
                     </div>
-                    <div class="mbr-section-btn"><a id="investP6"class="btn btn-sm btn-primary display-4" href="#"><span class="imind-mail-money mbr-iconfont mbr-iconfont-btn"></span>Stake BNB</a></div>
+                    <div class="mbr-section-btn"><a onclick="stake(5)" class="btn btn-sm btn-primary display-4" href="#"><span class="imind-mail-money mbr-iconfont mbr-iconfont-btn"></span>Stake BNB</a></div>
                 </div>
             </div>
         </div>
@@ -409,15 +408,15 @@ Earnings every moment, withdraw instantly any time">
                 <span class="mbr-iconfont icon54-v1-money-bag"></span>
                 <h2 class="heading mbr-card-title mbr-fonts-style display-5">Available BNB for withdrawal</h2>
                 <h3 id="getUserAvailable"class="count counter mbr-fonts-style mbr-bold display-2">- -</h3>
-                <div id="withdraw"class="mbr-section-btn"><a class="btn btn-sm btn-primary display-5"><span class="item-icon icon54-v1-money-bag2"></span>Withdraw BNB</a></div>
+                <div id="withdraw" class="mbr-section-btn"><a class="btn btn-sm btn-primary display-5"><span class="item-icon icon54-v1-money-bag2"></span>Withdraw BNB</a></div>
             </div>
 
             <div class="col-md-3 col-sm-6 stats-item col-md-4">
                 <span class="mbr-iconfont icon54-v4-refresh-users"></span>
                 <h2 class="heading mbr-card-title mbr-fonts-style display-5">Your Referral Link</h2>
-                <p id="reflink"  value ="- -" type="text" class="btn btn-sm btn-primary display-4"></p>>
+                <p id="reflink"  value ="- -" type="text" class="reflink btn btn-sm btn-primary display-4"></p>>
                 
-                <button class="btn btn-sm btn-primary display-4"onclick="copyToClipboard('reflink')">Copy link</button>
+                <button class="btn btn-sm btn-primary display-4" onclick="copyToClipboard('reflink')">Copy link</button>
                                     
                 
                 </button>
@@ -438,42 +437,25 @@ Earnings every moment, withdraw instantly any time">
         <h2 class="mbr-section-title align-center mbr-fonts-style display-2">
             My Stakes</h2>
         <h3 class="mbr-section-subtitle mbr-fonts-style align-center mbr-light display-5">
-<div>
-        <div class="row justify-content-center align-center">            
-                <span class="mbr-iconfont icon54-v1-stock-ofmoney"></span>
-    <h2 id="TotalNumberOfDeposits" class="heading mbr-card-title mbr-fonts-style display-5"></h2>
-    <div class="container-fluid">
-        
-        <span id="getUserDepositInfo1"class="heading mbr-card-title mbr-fonts-style display-7"> - -</span>
-        <span id="getUserDepositInfo2"class="heading mbr-card-title mbr-fonts-style display-5"> - -</span>
-        <span id="getUserDepositInfo3"class="heading mbr-card-title mbr-fonts-style display-5"> - -</span>
-        <span id="getUserDepositInfo4"class="heading mbr-card-title mbr-fonts-style display-5"> - -</span>
-        <span id="getUserDepositInfo5"class="heading mbr-card-title mbr-fonts-style display-5"> - -</span>
-        <span id="getUserDepositInfo6"class="heading mbr-card-title mbr-fonts-style display-5"> - -</span>
-
-    </div>
-    <div class="container-fluid">
-        
-        <span id="getUserDepositInfo11"class="heading mbr-card-title mbr-fonts-style display-7"> - -</span>
-        <span id="getUserDepositInfo22"class="heading mbr-card-title mbr-fonts-style display-5"> - -</span>
-        <span id="getUserDepositInfo33"class="heading mbr-card-title mbr-fonts-style display-5"> - -</span>
-        <span id="getUserDepositInfo44"class="heading mbr-card-title mbr-fonts-style display-5"> - -</span>
-        <span id="getUserDepositInfo55"class="heading mbr-card-title mbr-fonts-style display-5"> - -</span>
-        <span id="getUserDepositInfo66"class="heading mbr-card-title mbr-fonts-style display-5"> - -</span>
-
-    </div>
-    <div class="container-fluid">
-        
-        <span id="getUserDepositInfo111"class="heading mbr-card-title mbr-fonts-style display-7"> - -</span>
-        <span id="getUserDepositInfo222"class="heading mbr-card-title mbr-fonts-style display-5"> - -</span>
-        <span id="getUserDepositInfo333"class="heading mbr-card-title mbr-fonts-style display-5"> - -</span>
-        <span id="getUserDepositInfo444"class="heading mbr-card-title mbr-fonts-style display-5"> - -</span>
-        <span id="getUserDepositInfo555"class="heading mbr-card-title mbr-fonts-style display-5"> - -</span>
-        <span id="getUserDepositInfo666"class="heading mbr-card-title mbr-fonts-style display-5"> - -</span>
-
-    </div>
-    
-</div></div></div>
+		<div>
+			<div class="row justify-content-center align-center">            
+				<span class="mbr-iconfont icon54-v1-stock-ofmoney"></span>
+				<h2 id="TotalNumberOfDeposits" class="heading mbr-card-title mbr-fonts-style display-5"></h2>
+			</div>
+			<div class="row justify-content-center align-center">
+				<table class="active-stakes">
+					<tr class="container-fluid">
+						<td id="getUserDepositInfo1" style="padding-right: 40px;" class="heading mbr-card-title mbr-fonts-style display-5">Plan</td>
+						<td id="getUserDepositInfo2" style="padding-right: 40px;" class="heading mbr-card-title mbr-fonts-style display-5">Percent</td>
+						<td id="getUserDepositInfo3" style="padding-right: 40px;" class="heading mbr-card-title mbr-fonts-style display-5">Amount</td>
+						<td id="getUserDepositInfo4" style="padding-right: 40px;" class="heading mbr-card-title mbr-fonts-style display-5">Profit</td>
+						<td id="getUserDepositInfo5" style="padding-right: 40px;" class="heading mbr-card-title mbr-fonts-style display-5">Start</td>
+						<td id="getUserDepositInfo6" class="heading mbr-card-title mbr-fonts-style display-5">Finish</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+	</div>
 </section>
 <section class="extCounters counters cid-ss44rvJZTl" id="extCounters2-7">
 
