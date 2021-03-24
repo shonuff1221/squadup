@@ -5,7 +5,7 @@ let connection;
 let mainAccount;
 let accounts;
 
-let thisURL = window.location.origin.toString();
+let thisURL = window.location.origin.toString()+"/squadup";
 console.log(thisURL)
 
 let Accounttype = "0";
