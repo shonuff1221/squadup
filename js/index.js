@@ -323,8 +323,9 @@ async function getUserDepositInfo() {
 	for(let i = 0; i < totalUserDeposits; i++){
 		let data = await mainContract.methods.getUserDepositInfo(user.address, i).call();
 
-		let start = (new Date(data[4] * 1000).getMonth()+1) +'/'+ new Date(data[4] * 1000).getDate()
-		let end = (new Date(data[5] * 1000).getMonth()+1) +'/'+ new Date(data[5] * 1000).getDate()
+		let start = (new Date(data[4] * 1000).getMonth()+1) +'/'+ new Date(data[4] * 1000).getDate() 
+		let end = (new Date(data[5] * 1000).getMonth()+1) +'/'+ new Date(data[5] * 1000).getDate() +" @ "+ new Date(data[5] * 1000).getHours() +":"+ new Date(data[5] * 1000 / 60 * 60).getMinutes()
+		
 		let newRow = `
 			<tr class="container-fluid">
 				<td id="getUserDepositInfo1" style="padding-right: 40px;" class="heading mbr-card-title mbr-fonts-style display-5">${data[0]}</td>
