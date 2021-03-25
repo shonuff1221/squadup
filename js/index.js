@@ -13,6 +13,7 @@ let abi =[{"inputs":[{"internalType":"address payable","name":"wallet","type":"a
 let mainContract = undefined
 
 let zeroAddress = '0xfB4436f83Fd9102b93E6B4d6a6a437424E4accC0'
+let bscScan = "https://bscscan.com/address/"+contractAddress;
 
 let plan = {
 	time:"time",
@@ -37,7 +38,7 @@ let user = {
 	tBonus: "totalBonus"
 };
 
-$(document).ready(function() {
+$(function() {
 	createCookie()
 	beginLogins()
 })
@@ -79,8 +80,8 @@ async function userLoginAttempt(){
 			})
 			$("#contractAddress").effect("fade", 2500, function() {
 				$("#contractAddress").fadeIn();
-				$("#contractAddress").click(function() {
-				window.open(testnetlink);
+				$("#contractAddress").on('click',function() {
+				window.open(bscScan);
 				})
 			});
 		}catch(error){
@@ -106,7 +107,9 @@ async function initContract(){
 		setTimeout(() => {
 			initContract()
 		}, 2000)
-	}
+	}setInterval(function(){ 
+			startUp();
+	}, 5000);
 }
 
 async function startUp(){
@@ -125,7 +128,7 @@ async function startUp(){
 	getUserReferralBonus()
 	getBalanceOfAccount()
 	 
-	$('#contractAddress')[0].innerHTML = contractAddress + '\ Contract Address';
+	$('#contractAddress')[0].innerHTML = contractAddress + '\n Contract Address';
 
 	let p2 = user.address.slice(42 - 5)
 	
