@@ -4,7 +4,7 @@ let contract_address;
 let connection;
 let mainAccount;
 let accounts;
-let thisURL = window.location.origin.toString();
+let thisURL = window.location.host.toString();
 console.log(thisURL);
 
 
