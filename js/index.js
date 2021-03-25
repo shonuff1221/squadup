@@ -4,7 +4,7 @@ let contract_address;
 let connection;
 let mainAccount;
 let accounts;
-let thisURL = window.location.href.toString();
+let thisURL = window.location.hostname.toString();
 console.log(thisURL);
 
 
@@ -184,10 +184,42 @@ const getAccounts = async () => {
     return null;
   }
 };
-
-
+//Write functions
+function toHexString(number){
+	return '0x'+number.toString(16)
+}
+async function stake(planId){
+  let ref
+	if(validateErcAddress(user.ref))
+		ref = user.ref
+	else if(user.ref == accounts[0])
+		ref = zeroAdddress
+	else 
+		ref = zeroAddress
+	
+	let inputAmount = toHexString($('#plan'+(planId+1)+'amount')[0].value * 1e18)
+	let contract=new web3.eth.Contract(abi,contractAddress);
+	let res = await contract.methods.invest(ref, planId).send({
+		from: accounts[0],
+		value: inputAmount
+	}).then(res => {
+		alert('TX Hash\n https://bscscan.com/tx/'+res.blockHash+'\nReferrer\n'+ref);
+		console.log(res)
+		
+	})
+}
   
-
+$('#withdraw').on('click', function() {      
+	let contract=new web3.eth.Contract(abi,contractAddress);
+  return new Promise(async (resolve, reject) => {
+	  contract.methods.withdraw().send({
+		 from:accounts[0]
+	   }).on("transactionHash", async (hash) => {
+		console.log("transactionHash: ", hash);
+		$("#withDrawId").text(hash);
+		});;
+  })
+});
   //Read Function
   async function getUserDividends() {
     let contract=new web3.eth.Contract(abi,contractAddress);
@@ -311,42 +343,7 @@ async function getUserReferralTotalBonus() {
     jQuery("#getUserReferralTotalBonus").text(web3.utils.fromWei(data,"ether"));
   })
 }
-//Write functions
-function toHexString(number){
-	return '0x'+number.toString(16)
-}
-async function stake(planId){
-  let ref
-	if(validateErcAddress(user.ref))
-		ref = user.ref
-	else if(user.ref == accounts[0])
-		ref = zeroAdddress
-	else 
-		ref = zeroAddress
-	
-	let inputAmount = toHexString($('#plan'+(planId+1)+'amount')[0].value * 1e18)
-	let contract=new web3.eth.Contract(abi,contractAddress);
-	let res = await contract.methods.invest(ref, planId).send({
-		from: accounts[0],
-		value: inputAmount
-	}).then(res => {
-		alert('TX Hash\n https://bscscan.com/tx/'+res.blockHash+'\nReferrer\n'+ref);
-		console.log(res)
-		
-	})
-}
-  
-$('#withdraw').on('click', function() {      
-	let contract=new web3.eth.Contract(abi,contractAddress);
-  return new Promise(async (resolve, reject) => {
-	  contract.methods.withdraw().send({
-		 from:accounts[0]
-	   }).on("transactionHash", async (hash) => {
-		console.log("transactionHash: ", hash);
-		$("#withDrawId").text(hash);
-		});;
-  })
-});
+
  function copyToClipboard(reflink) {
 	var aux = document.createElement("input");
 	aux.setAttribute("value", document.getElementById(reflink).innerHTML);
