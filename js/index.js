@@ -5,7 +5,7 @@ let connection;
 let mainAccount;
 let accounts;
 let thisURL = window.location.origin.toString();
-//console.log(thisURL)
+
 
 let Accounttype = "0";
 let contractAddress = "0xF027A0C4f4580C7bE4344228D7482e2Fb64C70a7";
