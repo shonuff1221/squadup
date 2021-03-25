@@ -328,7 +328,7 @@ async function getUserDepositInfo() {
 		let newRow = `
 			<tr class="container-fluid">
 				<td id="getUserDepositInfo1" style="padding-right: 40px;" class="heading mbr-card-title mbr-fonts-style display-5">${data[0]}</td>
-				<td id="getUserDepositInfo2" style="padding-right: 40px;" class="heading mbr-card-title mbr-fonts-style display-5">${data[1]}</td>
+				<td id="getUserDepositInfo2" style="padding-right: 40px;" class="heading mbr-card-title mbr-fonts-style display-5">${data[1]/10+"%"}</td>
 				<td id="getUserDepositInfo3" style="padding-right: 40px;" class="heading mbr-card-title mbr-fonts-style display-5">${web3.utils.fromWei(data[2], "ether")}</td>
 				<td id="getUserDepositInfo4" style="padding-right: 40px;" class="heading mbr-card-title mbr-fonts-style display-5">${web3.utils.fromWei(data[3], "ether")}</td>
 				<td id="getUserDepositInfo5" style="padding-right: 40px;" class="heading mbr-card-title mbr-fonts-style display-5">${start}</td>
