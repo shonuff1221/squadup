@@ -118,8 +118,8 @@ async function startUp(){
 	planPercents()
 	await getTotalNumberOfDeposits()
 	getUserDepositInfo()
-	//getUserReferrer()
-	//getUserCheckpoint()
+	getUserReferrer()
+	getUserCheckpoint()
 	getUserReferralTotalBonus()
 	getUserDownlineCount()
 	getUserTotalDeposits()
@@ -127,6 +127,7 @@ async function startUp(){
 	getUserReferralWithdrawn()
 	getUserReferralBonus()
 	getBalanceOfAccount()
+	getLaunchtimer()
 	 
 	$('#contractAddress')[0].innerHTML = contractAddress + '\n Contract Address';
 
@@ -310,6 +311,7 @@ async function getUserDownlineCount() {
   })
 }
 async function getUserDepositInfo() {
+	
 	$('.active-stakes')[0].innerHTML = `
 	<tr class="container-fluid">
 	<td colspan="3"id="getUserDepositInfo1" style="color:red;margin-left: 400px;" class="heading mbr-card-title mbr-fonts-style display-5">Plan</td>
@@ -453,3 +455,25 @@ function validateErcAddress(address) {
     return false;
 }
 
+//TIMER
+function getLaunchtimer() {
+	const stakeTimeEnd = 1617026400;
+	const milliseconds = stakeTimeEnd * 1000
+	
+	var x = setInterval(function () {
+	  var now = new Date().getTime();
+	  var distance = milliseconds - now;
+	  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+	  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+	  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+	  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+	
+	  document.getElementById("timer").innerHTML = "Contract Starts in: "+days + " days " + hours + " hours " + minutes + " minutes " + seconds + " seconds ";
+	
+	  if (distance < 0) {
+		clearInterval(x);
+		document.getElementById("timer").innerHTML = "Contract is Live!";
+	  }
+	
+	}, 1000);
+	}
