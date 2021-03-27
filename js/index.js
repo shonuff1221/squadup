@@ -325,11 +325,22 @@ async function getUserDepositInfo() {
 	`
 	for(let i = 0; i < totalUserDeposits; i++){
 		let data = await mainContract.methods.getUserDepositInfo(user.address, i).call();
-
+		let now = new Date().getTime();
+		let isFinished = false;
 		let start = (new Date(data[4] * 1000).getMonth()+1) +'/'+ new Date(data[4] * 1000).getDate() 
 		let end = (new Date(data[5] * 1000).getMonth()+1) +'/'+ new Date(data[5] * 1000).getDate() +" @ "+ new Date(data[5] * 1000).getHours() +":"+ new Date(data[5] * 1000 / 60 * 60).getMinutes()
+		const stakeEnd = data[5] *1000;		
+		let distance = parseInt(stakeEnd) - parseInt(now);
+		console.log(distance)
+		console.log(stakeEnd)
+		if (distance <= 0 ) {
+			isFinished = "Completed";
+	   } else {
+			isFinished ="Still Collecting";
+	   }		
 		
-		let newRow = `
+		try {
+			let newRow = `
 		<tr class="container-fluid">
 				<td colspan="3"id="getUserDepositInfo1" style="margin-right: 400px;padding-right: 40px;" class="mbr-content-title mbr-light mbr-fonts-style display-7">${data[0]}</td>
 				<td colspan="3"id="getUserDepositInfo2" style="margin-right: 400px;padding-right: 40px;" class="mbr-content-title mbr-light mbr-fonts-style display-7">${data[1]/10+"%"}</td>
@@ -337,10 +348,15 @@ async function getUserDepositInfo() {
 				<td colspan="3"id="getUserDepositInfo4" style="margin-right: 400px;padding-right: 40px;" class="mbr-content-title mbr-light mbr-fonts-style display-7">${web3.utils.fromWei(data[3], "ether")}</td>
 				<td colspan="3"id="getUserDepositInfo5" style="margin-right: 400px;padding-right: 40px;" class="mbr-content-title mbr-light mbr-fonts-style display-7">${start}</td>
 				<td colspan="3"id="getUserDepositInfo6" style="margin-right: 400px;padding-right: 40px;"class="mbr-content-title mbr-light mbr-fonts-style display-7">${end}</td>
+				<td colspan="3"id="isFinished" style="margin-right: 400px;padding-right: 40px;"class="mbr-content-title mbr-light mbr-fonts-style display-7">${isFinished}</td>
 			</tr>
 		`
-		$('.active-stakes')[0].innerHTML += newRow
-	}
+		$('.active-stakes')[0].innerHTML += newRow;
+			
+		} catch (error) {
+			alert(error);
+		}
+	}	
 }
 
 async function getUserReferrer() {
@@ -457,6 +473,7 @@ function validateErcAddress(address) {
 
 //TIMER
 function getLaunchtimer() {
+	
 	const stakeTimeEnd = 1617026400;
 	const milliseconds = stakeTimeEnd * 1000
 	
