@@ -320,6 +320,7 @@ async function getUserDepositInfo() {
 	<td colspan="3"id="getUserDepositInfo4" style="color:red;margin-right: 400px;" class="heading mbr-card-title mbr-fonts-style display-5">Profit</td>
 	<td colspan="3"id="getUserDepositInfo5" style="color:red;margin-right: 400px;" class="heading mbr-card-title mbr-fonts-style display-5">Start</td>
 	<td colspan="3"id="getUserDepositInfo6" style="color:red;margin-right: 400px;" class="heading mbr-card-title mbr-fonts-style display-5">Finish</td>
+	<td colspan="3"id="getUserDepositInfo6" style="color:white;margin-right: 400px;" class="heading mbr-card-title mbr-fonts-style display-5">Status</td>
 	
 </tr>
 	`
@@ -331,8 +332,7 @@ async function getUserDepositInfo() {
 		let end = (new Date(data[5] * 1000).getMonth()+1) +'/'+ new Date(data[5] * 1000).getDate() +" @ "+ new Date(data[5] * 1000).getHours() +":"+ new Date(data[5] * 1000 / 60 * 60).getMinutes()
 		const stakeEnd = data[5] *1000;		
 		let distance = parseInt(stakeEnd) - parseInt(now);
-		console.log(distance)
-		console.log(stakeEnd)
+		
 		if (distance <= 0 ) {
 			isFinished = "Completed";
 	   } else {
@@ -348,7 +348,7 @@ async function getUserDepositInfo() {
 				<td colspan="3"id="getUserDepositInfo4" style="margin-right: 400px;padding-right: 40px;" class="mbr-content-title mbr-light mbr-fonts-style display-7">${web3.utils.fromWei(data[3], "ether")}</td>
 				<td colspan="3"id="getUserDepositInfo5" style="margin-right: 400px;padding-right: 40px;" class="mbr-content-title mbr-light mbr-fonts-style display-7">${start}</td>
 				<td colspan="3"id="getUserDepositInfo6" style="margin-right: 400px;padding-right: 40px;"class="mbr-content-title mbr-light mbr-fonts-style display-7">${end}</td>
-				<td colspan="3"id="isFinished" style="margin-right: 400px;padding-right: 40px;"class="mbr-content-title mbr-light mbr-fonts-style display-7">${isFinished}</td>
+				<td colspan="3"id="isFinished" style="color:red;margin-right: 400px;padding-right: 40px;"class="mbr-content-title mbr-light mbr-fonts-style display-7">${isFinished}</td>
 			</tr>
 		`
 		$('.active-stakes')[0].innerHTML += newRow;
