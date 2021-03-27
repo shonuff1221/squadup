@@ -39,6 +39,7 @@ let user = {
 };
 
 $(function() {
+	getLaunchtimer()
 	createCookie()
 	beginLogins()
 })
@@ -127,7 +128,7 @@ async function startUp(){
 	getUserReferralWithdrawn()
 	getUserReferralBonus()
 	getBalanceOfAccount()
-	getLaunchtimer()
+	
 	 
 	$('#contractAddress')[0].innerHTML = contractAddress + '\n Contract Address';
 
