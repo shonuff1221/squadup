@@ -282,22 +282,25 @@ async function getUserReferralBonus() {
   
   return new Promise(async (resolve, reject) => {
     let data=await mainContract.methods.getUserReferralBonus(user.address).call();
+	dataTrunc = data / 1e18;
     //console.log("data",data);
-    $("#getUserReferralBonus").text(web3.utils.fromWei(data,"ether")+" "+"BNB");
+    $("#getUserReferralBonus").text(abbreviate_number(dataTrunc, 4)+" "+"BNB");
   })
 }
 async function getUserReferralWithdrawn() {
   
   return new Promise(async (resolve, reject) => {
     let data=await mainContract.methods.getUserReferralWithdrawn(user.address).call();
+	dataTrunc = data / 1e18;
     //console.log("data",data);
-    $("#getUserReferralWithdrawn").text(web3.utils.fromWei(data,"ether")+" "+"BNB");
+    $("#getUserReferralWithdrawn").text(abbreviate_number(dataTrunc, 4)+" "+"BNB");
   })
 }
 async function getUserTotalDeposits() {
     let depositData = await mainContract.methods.getUserTotalDeposits(user.address).call();
+	depositDataTrunc = depositData / 1e18;
     //console.log("depositTotal",depositData);
-    $("#getUserTotalDeposits").text(web3.utils.fromWei(depositData,"ether")+" "+"BNB");
+    $("#getUserTotalDeposits").text(abbreviate_number(depositDataTrunc, 4)+" "+"BNB");
 }
 async function getUserDownlineCount() {
   
@@ -377,8 +380,9 @@ async function getUserCheckpoint() {
 async function getUserReferralTotalBonus() {
   
   return new Promise(async (resolve, reject) => {
-    let data=await mainContract.methods.getUserReferralTotalBonus(user.address).call();
-    $("#getUserReferralTotalBonus").text(web3.utils.fromWei(data,"ether"));
+    let dataFull = (await mainContract.methods.getUserReferralTotalBonus(user.address).call() / 1e18);
+	let data = abbreviate_number(dataFull, 4)
+    $("#getUserReferralTotalBonus").text(data+" "+"BNB");
   })
 }
  
